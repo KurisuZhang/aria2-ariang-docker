@@ -1,4 +1,5 @@
-https://docs.cloudreve.org/v/en/getting-started/install#docker-compose
+https://docs.cloudreve.org/v/en/getting-started/install#docker-compose  
+
 mkdir -vp cloudreve/{uploads,avatar} \
 && touch cloudreve/conf.ini \
 && touch cloudreve/cloudreve.db \
