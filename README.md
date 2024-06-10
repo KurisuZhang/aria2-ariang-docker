@@ -1,18 +1,36 @@
-Aria2 + AriaNg + Filebrowser
+```
+version: "3.5"
+services:
+  aria2-ui:
+    restart: unless-stopped
+    image: wahyd4/aria2-ui:latest
+    environment:
+      - ENABLE_AUTH=true
+      - ARIA2_USER=admin
+      - ARIA2_PWD=admin
+      - ENABLE_RCLONE=false
+      - RPC_SECRET=8899783
+    ports:
+      - "233:80"
+    volumes:
+      - ./data:/data
 
-English | [简体中文](https://github.com/wahyd4/aria2-ariang-docker/blob/master/README.CN.md)
 
-[![](https://images.microbadger.com/badges/image/wahyd4/aria2-ui.svg)](https://microbadger.com/images/wahyd4/aria2-ui "Get your own image badge on microbadger.com")
-[![Docker Pulls](https://img.shields.io/docker/pulls/wahyd4/aria2-ui.svg)](https://hub.docker.com/r/wahyd4/aria2-ui/)
-[![Github Build](https://github.com/wahyd4/aria2-ariang-docker/actions/workflows/dockerimage.yml/badge.svg)](https://github.com/wahyd4/aria2-ariang-docker/actions)
-
-[![Page Views Count](https://badges.toozhao.com/svg/aria2-ariang-docker)](https://badges.toozhao.com/stats/aria2-ariang-docker "Page Views Count")
-
-
-
-**If you like this project, please consider [sponsoring me](https://github.com/sponsors/wahyd4) / 如果喜欢本项目，请考虑打赏，谢谢！**
-
-<img src="https://raw.githubusercontent.com/wahyd4/work-in-australia/766592ac6318027d7b3c334d8c50ca80818eeff8/wepay.jpg" alt="buy me a drink" width="120"/>
+version: "3.8"
+services:
+  cloudreve:
+    container_name: cloudreve
+    image: cloudreve/cloudreve:latest
+    restart: unless-stopped
+    ports:
+      - "5212:5212"
+    volumes:
+      - ./data:/data
+      - ./cloudreve/uploads:/cloudreve/uploads
+      - ./cloudreve/conf.ini:/cloudreve/conf.ini
+      - ./cloudreve/cloudreve.db:/cloudreve/cloudreve.db
+      - ./cloudreve/avatar:/cloudreve/avatar
+```
 
 - [Features](#features)
 - [Recommended versions](#recommended-versions)
